@@ -9,14 +9,13 @@ end
 term.setBackgroundColor(colors.black); term.setTextColor(colors.white); term.clear(); term.setCursorPos(1,1)
 print("OSBUNK NOTES")
 print("========================================")
-print("Saved notes are stored in /OSBUNK/notes.txt")
 print("Commands: view, edit, clear, exit")
 while true do
   term.write("notes$ "); local cmd=read()
   if cmd=="exit" then break
   elseif cmd=="view" then print(load()); print("")
   elseif cmd=="clear" then save(""); print("Notes cleared.")
-  elseif cmd=="edit" then save(textutils.serialize({text=load()})) ; shell.run("edit",file)
+  elseif cmd=="edit" then shell.run("edit",file)
   elseif cmd=="" then
   else print("Unknown command.") end
 end
